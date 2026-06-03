@@ -1,0 +1,17 @@
+## Visual Studio Code
+.vscode/
+
+
+## Pastas de Compilação do .NET
+Bin/
+Obj/
+
+## Arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+.db
+
+## Logs e Caches
+.log
+.packet/
+.project/
