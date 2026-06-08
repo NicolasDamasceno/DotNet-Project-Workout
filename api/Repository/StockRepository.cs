@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
+using api.Dtos.Stock;
 using api.Interfaces;
 using api.models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Repository
@@ -17,9 +19,66 @@ namespace api.Repository
         {
             _context = context;
         }
+
+        public async Task<Stock> CreateAsync(Stock stockModel)
+        {
+            await _context.Stocks.AddAsync(stockModel);
+            await _context.SaveChangesAsync();
+            return stockModel;
+        }
+
+        public async Task<Stock?> DeleteAsycn(int id)
+        {
+            var stockModel = await _context.Stocks.FirstOrDefaultAsync(x => x.Id == id);
+            if(stockModel == null)
+            {
+                return null;
+            } 
+
+            _context.Stocks.Remove(stockModel);
+            await _context.SaveChangesAsync();
+            return stockModel;
+        }
+
         public async Task<List<Stock>> GetAllAsync()
         {
-            return await _context.Stocks.ToListAsync();
+            return await _context.Stocks.Include(c => c.Comments).ToListAsync();
+        }
+
+        public async Task<Stock?> GetByIdAsync(int id)
+        {
+            var stockModel = await _context.Stocks.Include(c => c.Comments).FirstOrDefaultAsync(i => i.Id == id);
+            if (stockModel == null)
+            {
+                return null;
+            }
+
+            return stockModel;
+        }
+
+        public Task<bool> StockExists(int id)
+        {
+            return _context.Stocks.AnyAsync(s => s.Id == id);
+        }
+
+        public async Task<Stock?> UpdateAsycn(int id, UpdateStockRequestDto stockDto)
+        {
+            var existingStock = await _context.Stocks.FirstOrDefaultAsync(x => x.Id == id);
+            if (existingStock == null)
+            {
+                return null;
+            }
+            
+            existingStock.Symbol = stockDto.Symbol;
+            existingStock.CompanyName = stockDto.CompanyName;
+            existingStock.Purhcase = stockDto.Purhcase;
+            existingStock.LastDiv = stockDto.LastDiv;
+            existingStock.Industry = stockDto.Industry;
+            existingStock.MarketCap = stockDto.MarketCap;
+
+            await _context.SaveChangesAsync();
+            return existingStock;
+
         }
     }
 }
