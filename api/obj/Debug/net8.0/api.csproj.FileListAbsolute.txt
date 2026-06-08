@@ -104,3 +104,7 @@
 /home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/bin/Debug/net8.0/Microsoft.AspNetCore.JsonPatch.dll
+/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/bin/Debug/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/bin/Debug/net8.0/Newtonsoft.Json.dll
+/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/bin/Debug/net8.0/Newtonsoft.Json.Bson.dll
