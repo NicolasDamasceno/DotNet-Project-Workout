@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
 using api.Dtos.Comment;
+using api.Helpers;
 using api.Interfaces;
 using api.Mappers;
 using api.models;
@@ -23,13 +24,13 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] QueryObjectComment query)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var comments = await _commentRepo.GetAllAsync();
+            var comments = await _commentRepo.GetAllAsync(query);
 
             var commentDto = comments.Select(s => s.ToCommentDto());
             
