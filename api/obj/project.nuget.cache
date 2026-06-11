@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EGraQt7bQ6vvz7+L/iAc8O1sIHkUQZ8eafKXL17l3TacJNABykH6gb+vfbLH8bbSXeyDIs8GV63hiG9uusDXXg==",
+  "dgSpecHash": "HNgLInhuI94qw4D9+NFLggTaPKG6yz8Qjf14idyNKMYZ27UJ5/MasBDg6UwC3jxlvwjds21NEfExEu048te7Aw==",
   "success": true,
-  "projectFilePath": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/api.csproj",
+  "projectFilePath": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/backend/api/api.csproj",
   "expectedPackageFiles": [
     "/home/nicolas/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/nicolas/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.27/microsoft.aspnetcore.authentication.jwtbearer.8.0.27.nupkg.sha512",

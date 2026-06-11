@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/api.csproj": {}
+    "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/backend/api/api.csproj": {}
   },
   "projects": {
-    "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/api.csproj": {
+    "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/backend/api/api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/api.csproj",
+        "projectUniqueName": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/backend/api/api.csproj",
         "projectName": "api",
-        "projectPath": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/api.csproj",
+        "projectPath": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/backend/api/api.csproj",
         "packagesPath": "/home/nicolas/.nuget/packages/",
-        "outputPath": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/obj/",
+        "outputPath": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/backend/api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/nicolas/.nuget/NuGet/NuGet.Config"
