@@ -3492,11 +3492,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/backend/api/api.csproj",
+      "projectUniqueName": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/api.csproj",
       "projectName": "api",
-      "projectPath": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/backend/api/api.csproj",
+      "projectPath": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/api.csproj",
       "packagesPath": "/home/nicolas/.nuget/packages/",
-      "outputPath": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/backend/api/obj/",
+      "outputPath": "/home/nicolas/ProjetosLevel33/JunkProjects/FinShark/DotNet-Project-Workout/api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/nicolas/.nuget/NuGet/NuGet.Config"
@@ -3587,7 +3587,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.127/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.128/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
