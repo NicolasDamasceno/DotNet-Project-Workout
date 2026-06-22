@@ -1,28 +1,13 @@
-import React from 'react'
-import { TestDataCompany } from '../Table/testData';
 
-type Props = {}
 
-const data = TestDataCompany[0];
+type Props = {
+  config: any;
+  data: any;
+};
 
-type Company = typeof data;
 
-const config = [
-  {
-    label: "Company Name",
-    render: (company:Company) => company.companyName,
-    subTilte: "This is the company name",
-  },
-  {
-    label: "Company Name",
-    render: (company:Company) => company.companyName,
-    subTilte: "This is the company name",
-  }
-
-];
-
-const RadioList = (props: Props) => {
-  const renderedRows = config.map(row=> {
+const RadioList = ({config, data}: Props) => {
+  const renderedRows = config.map((row: any)=> {
     return (
       <li className="py-3 sm:py-4">
         <div className="flex items-center space-x-4">
@@ -31,7 +16,13 @@ const RadioList = (props: Props) => {
               {row.label}
             </p>
             <p className="text-sm text-gray-500 truncate">
-              {row.subTilte && row.subTilte}
+              <a 
+                href="/cdn-cgi/l/email-protection"
+                className="__cf_email__"
+                data-cfemail="17727a767e7b57607e7973646372653974787a"
+              >
+                {row.subTilte && row.subTilte}
+              </a>
             </p>
           </div>
           <div className="inline-flex items-center text-base font-semibold text-gray-900">
@@ -42,7 +33,7 @@ const RadioList = (props: Props) => {
     );
   })
   return (
-    <div className="bg-white shadow rounded-lg mb-4 p-4 sm:p-6 h-full">
+    <div className="bg-white shadow rounded-lg ml-4 mt-4 mb-4 p-4 sm:p-6 w-full">
       <ul className="divide-y divided-gray-200">
         {renderedRows}</ul>      
     </div>
