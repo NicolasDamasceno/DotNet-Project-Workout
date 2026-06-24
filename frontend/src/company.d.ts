@@ -310,3 +310,20 @@ export interface CompanyKeyMetrics {
   dividendPerShareTTM: number;
   debtToMarketCapTTM: number;
 }
+
+export interface PeerCompany {
+  symbol: string;
+  companyName: string;
+  price: number;
+}
+
+export interface CompanyTenK {
+  symbol: string;
+  calendarYear: string;
+  period: string;
+  fillingDate: string;
+  acceptedDate: string;
+  link: string;
+  finalLink: string;
+
+}
