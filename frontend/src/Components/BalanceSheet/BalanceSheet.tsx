@@ -3,39 +3,79 @@ import { CompanyBalanceSheet, CompanyCashFlow } from '../../company';
 import { useOutletContext } from 'react-router-dom';
 import { getBalanceSheet } from '../../api';
 import RadioList from '../RadioList/RadioList';
+import Spinner from '../Spinner/Spinner';
+import { formatLargeMonetaryNumber } from '../../Helpers/NumberFomating';
 
 type Props = {}
 
 const config = [
   {
-    label: "Date",
-    render: (company: CompanyBalanceSheet) => company.date,
+    label: <div className="font-bold">Total Assets</div>,
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.totalAssets),
   },
   {
-    label: "Total Assets",
-    render: (company: CompanyBalanceSheet) => company.totalAssets,
+    label: "Current Assets",
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.totalCurrentAssets),
   },
   {
-    label: "Total Liabilities",
-    render: (company: CompanyBalanceSheet) => company.totalLiabilities,
+    label: "Total Cash",
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.cashAndCashEquivalents),
   },
   {
-    label: "Total Equity",
-    render: (company: CompanyBalanceSheet) => company.totalEquity,
+    label: "Property & equipment",
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.propertyPlantEquipmentNet),
   },
   {
-    label: "Cash & Short Term Investments",
-    render: (company: CompanyBalanceSheet) => company.cashAndShortTermInvestments,
+    label: "Intangible Assets",
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.intangibleAssets),
+  },
+  {
+    label: "Long Term Debt",
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.longTermDebt),
   },
   {
     label: "Total Debt",
-    render: (company: CompanyBalanceSheet) => company.totalDebt,
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.otherCurrentLiabilities),
   },
   {
-    label: "Net Debt",
-    render: (company: CompanyBalanceSheet) => company.netDebt,
+    label: <div className="font-bold">Total Liabilites</div>,
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.totalLiabilities),
+  },
+  {
+    label: "Current Liabilities",
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.totalCurrentLiabilities),
+  },
+  {
+    label: "Long-Term Debt",
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.longTermDebt),
+  },
+  {
+    label: "Long-Term Income Taxes",
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.otherLiabilities),
+  },
+  {
+    label: "Stakeholder's Equity",
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.totalStockholdersEquity),
+  },
+  {
+    label: "Retained Earnings",
+    render: (company: CompanyBalanceSheet) =>
+      formatLargeMonetaryNumber(company.retainedEarnings),
   },
 ];
+
 
 const BalanceSheet = (props: Props) => {
     const ticker = useOutletContext<string>();
@@ -54,7 +94,7 @@ const BalanceSheet = (props: Props) => {
             <RadioList config={config} data={balanceSheet} />
 
         ): (
-            <h1>Company not found!</h1>
+            <Spinner/>
         )}
     </>
   )
