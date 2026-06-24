@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CompanyBalanceSheet, CompanyCashFlow, CompanyIncomeStatement, CompanyKeyMetrics, CompanyKeyRatios, CompanyProfile, CompanySearch } from "./company";
+import { CompanyBalanceSheet, CompanyCashFlow, CompanyIncomeStatement, CompanyKeyMetrics, CompanyKeyRatios, CompanyProfile, CompanySearch, CompanyTenK, PeerCompany } from "./company";
 
 interface SearchResponse {
   symbol: string;
@@ -922,5 +922,52 @@ export const getCashFlowStatement = async (query: string) => {
     return { data: finalData };
   } catch (error: any) {
     console.log("Error in Mock CashFlow: ", error.message);
+  }
+};
+
+
+export const getCompData = async (query: string) => {
+  try {
+    const data = await axios.get<PeerCompany[]>(
+      `https://financialmodelingprep.com/stable/stock-peers?symbol=${query}&apikey=${process.env.REACT_APP_API_KEY}`
+    );
+
+    return data;
+  } catch (error: any) {
+    console.log("Error message: ", error.message);
+  }
+};
+
+export const getTenK = async (query: string) => {
+  try {
+    const ticker = query.toUpperCase();
+
+    // Banco de dados simulado com o histórico de relatórios 10-K das empresas
+    const tenKDatabase: Record<string, CompanyTenK[]> = {
+      TSLA: [
+        { symbol: "TSLA", calendarYear: "2023", period: "FY", fillingDate: "2024-01-26", acceptedDate: "2024-01-26", link: "https://www.sec.gov", finalLink: "https://www.sec.gov" },
+        { symbol: "TSLA", calendarYear: "2022", period: "FY", fillingDate: "2023-01-31", acceptedDate: "2023-01-31", link: "https://www.sec.gov", finalLink: "https://www.sec.gov" },
+        { symbol: "TSLA", calendarYear: "2021", period: "FY", fillingDate: "2022-02-07", acceptedDate: "2022-02-07", link: "https://www.sec.gov", finalLink: "https://www.sec.gov" }
+      ],
+      AAPL: [
+        { symbol: "AAPL", calendarYear: "2023", period: "FY", fillingDate: "2023-10-31", acceptedDate: "2023-10-31", link: "https://www.sec.gov", finalLink: "https://www.sec.gov" },
+        { symbol: "AAPL", calendarYear: "2022", period: "FY", fillingDate: "2022-10-28", acceptedDate: "2022-10-28", link: "https://www.sec.gov", finalLink: "https://www.sec.gov" },
+        { symbol: "AAPL", calendarYear: "2021", period: "FY", fillingDate: "2021-10-29", acceptedDate: "2021-10-29", link: "https://www.sec.gov", finalLink: "https://www.sec.gov" }
+      ],
+      MSFT: [
+        { symbol: "MSFT", calendarYear: "2023", period: "FY", fillingDate: "2023-07-27", acceptedDate: "2023-07-27", link: "https://www.sec.gov", finalLink: "https://www.sec.gov" },
+        { symbol: "MSFT", calendarYear: "2022", period: "FY", fillingDate: "2022-07-28", acceptedDate: "2022-07-28", link: "https://www.sec.gov", finalLink: "https://www.sec.gov" },
+        { symbol: "MSFT", calendarYear: "2021", period: "FY", fillingDate: "2021-07-29", acceptedDate: "2021-07-29", link: "https://www.sec.gov", finalLink: "https://www.sec.gov" }
+      ]
+    };
+
+    // Fallback caso busque outro ticker qualquer
+    const finalData = tenKDatabase[ticker] ? tenKDatabase[ticker] : [
+      { symbol: ticker, calendarYear: "2023", period: "FY", fillingDate: "2024-01-01", acceptedDate: "2024-01-01", link: "https://www.sec.gov", finalLink: "https://www.sec.gov" }
+    ];
+
+    return { data: finalData };
+  } catch (error: any) {
+    console.log("Error in Mock TenK: ", error.message);
   }
 };
